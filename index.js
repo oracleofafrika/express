@@ -805,22 +805,23 @@ getTodos(); */
  const prompt = pe();
 
  let message = prompt("what time to wake up?");
- let intervalInSecs = parseInt(prompt("2000 (in seconds):"));
- let repeatCount = parseInt(prompt("How many times should the reminder be shown? 7"));
+ let intervalInSecs = parseInt(prompt("set time interval(in seconds):"));
+ let repeatCount = parseInt(prompt("How many times should the reminder be shown? "));
 
  let count = 0;
- let intervalId = setInterval (() => {
+ let reminderApp= () => {
        console.log(message);
-       coutnt++;
+       count++;
 
-       if (count >= repeatCount){
-            clearInterval(intervalId);
+       if (count == repeatCount){
+            clearInterval(reminder);
              console.log("stop reminder");
             
        }
        
- },   intervalInSecs * 1000); 
- 
+ }   
+
+ const reminder = setInterval(reminderApp, intervalInSecs*1000 )
 
 
 // function sayHello (){
